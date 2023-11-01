@@ -16,12 +16,6 @@ function rollDice() {
   return dices[Math.floor(Math.random() * dices.length)];
 }
 
-const dice1 = document.querySelector("header article:nth-child(1)");
-const dice2 = document.querySelector("header article:nth-child(2)");
-const dice3 = document.querySelector("header article:nth-child(3)");
-const dice4 = document.querySelector("header article:nth-child(4)");
-const dice5 = document.querySelector("header article:nth-child(5)");
-const dice6 = document.querySelector("header article:nth-child(6)");
 const button = document.querySelector("button");
 const bigDice = document.querySelector("#dice");
 
