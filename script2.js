@@ -22,40 +22,22 @@ const dice3 = document.querySelector("header article:nth-child(3)");
 const dice4 = document.querySelector("header article:nth-child(4)");
 const dice5 = document.querySelector("header article:nth-child(5)");
 const dice6 = document.querySelector("header article:nth-child(6)");
-const bigDice = document.querySelector("#dice");
 const button = document.querySelector("button");
+const bigDice = document.querySelector("#dice");
 
 function initGame() {
-    let goalNumber = 1;
+  let goalNumber = 1;
   let rolledDice = "";
   let counter = 0;
   let rolled = [];
   button.addEventListener("click", () => {
     let roll = rollDice();
     console.log(roll);
-    if (roll === 1 && rolled.length === 0) {
-      rolled.push(roll);
-      dice1.classList.remove("faded");
-    }
-    if (roll === 2 && rolled.length === 1) {
-      rolled.push(roll);
-      dice2.classList.remove("faded");
-    }
-    if (roll === 3 && rolled.length === 2) {
-      rolled.push(roll);
-      dice3.classList.remove("faded");
-    }
-    if (roll === 4 && rolled.length === 3) {
-      rolled.push(roll);
-      dice4.classList.remove("faded");
-    }
-    if (roll === 5 && rolled.length === 4) {
-      rolled.push(roll);
-      dice5.classList.remove("faded");
-    }
-    if (roll === 6 && rolled.length === 5) {
-      rolled.push(roll);
-      dice6.classList.remove("faded");
+
+    if (roll === goalNumber) {
+      let smallDice = document.querySelector(`header .dots-${goalNumber}`);
+      smallDice.classList.remove("faded");
+      goalNumber = goalNumber + 1;
     }
 
     bigDice.classList.remove(`dots-${rolledDice}`);
@@ -65,7 +47,16 @@ function initGame() {
     counter++;
     console.log(rolled);
     button.textContent = `Kasta (${counter})`;
+
+    if(goalNumber > 6) {
+        button.textContent = `Du klarade det på ${counter} kast!`;
+        button.disabled = true;
+
+      }
   });
+
+
+
 }
 
 initGame();
