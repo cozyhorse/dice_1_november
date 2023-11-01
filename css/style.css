@@ -60,10 +60,14 @@ footer button {
   opacity: 0.2;
 }
 
-.dice aside {
+.dice aside  {
   background: #222;
   border-radius: 99rem;
   display: none;
+}
+
+#dice{
+  
 }
 
 .dice.dots-1 aside:nth-child(1) {
